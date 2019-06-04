@@ -20,8 +20,24 @@ class Blockchain {
   constructor() {
     this.chain = [this.createGenesis()];
   }
+  getTime() {
+    const today = new Date();
+    const date =
+      today.getFullYear() +
+      "-" +
+      String(today.getMonth() + 1).padStart(2, "0") +
+      "-" +
+      String(today.getDate()).padStart(2, "0");
+    const time =
+      String(today.getHours()).padStart(2, "0") +
+      ":" +
+      String(today.getMinutes()).padStart(2, "0") +
+      ":" +
+      String(today.getSeconds()).padStart(2, "0");
+    return date + " " + time;
+  }
   createGenesis() {
-    return new Block("2017-01-01", { data: "{}", id: 0 });
+    return new Block(this.getTime(), { data: "{}", id: 0 });
   }
   latestBlock() {
     return this.chain[this.chain.length - 1];

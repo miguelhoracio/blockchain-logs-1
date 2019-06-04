@@ -10,7 +10,12 @@ app.use(bodyParser.json());
 
 app.post("/create", (req, res) => {
   let lengthChain = chain.chain.length;
-  chain.addBlock(new Block("2017-01-01", { id: lengthChain, data: req.body }));
+  chain.addBlock(
+    new Block(chain.getTime(), {
+      id: lengthChain,
+      data: req.body
+    })
+  );
   res.json({ message: "Log successfully added" });
 });
 
