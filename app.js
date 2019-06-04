@@ -11,9 +11,7 @@ app.use(bodyParser.json());
 app.post("/create", (req, res) => {
   let lengthChain = chain.chain.length;
   chain.addBlock(new Block("2017-01-01", { id: lengthChain, data: req.body }));
-  console.log("este es el req", req.body);
   res.json({ message: "Log successfully added" });
-  console.log(JSON.stringify(chain, null, 4));
 });
 
 app.get("/read", (req, res) => {
@@ -21,7 +19,6 @@ app.get("/read", (req, res) => {
 });
 
 app.get("/read/?id=:id", (req, res) => {
-  console.log(req.route);
   res.json(chain.chain[req.id]);
 });
 
