@@ -23,8 +23,8 @@ app.get("/read", (req, res) => {
   res.json(chain.chain);
 });
 
-app.get("/read/?id=:id", (req, res) => {
-  res.json(chain.chain[req.id]);
+app.get("/read/:id", (req, res) => {
+  res.json(chain.chain[req.params.id]);
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

@@ -37,7 +37,7 @@ class Blockchain {
     return date + " " + time;
   }
   createGenesis() {
-    return new Block(this.getTime(), { data: "{}", id: 0 });
+    return new Block(this.getTime(), { data: {}, id: 0 });
   }
   latestBlock() {
     return this.chain[this.chain.length - 1];
